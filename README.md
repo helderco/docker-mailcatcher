@@ -9,7 +9,7 @@ There are two exposed ports. Use port 25 to send emails to, and 80 to access the
 
 Run mailcatcher process:
 
-    docker run -d -p 1080:80 --name mail mailcatcher
+    docker run -d -p 1080:80 --name mail helder/mailcatcher
 
 Link to another container to send emails:
 
