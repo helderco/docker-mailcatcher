@@ -22,14 +22,12 @@ In this example emails should be sent to host `mail` and port 25.
 
 ssmtp is a very lightweight send-only sendmail emulator. Let's see an example of how we can override sendmail:
 
-```Dockerfile
-# Dockerfile
-FROM helder/php
+    # Dockerfile
+    FROM helder/php
 
-RUN apt-install ssmtp && \
-    echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini && \
-    echo "mailhub=mail:25\nUseTLS=NO\nFromLineOverride=YES" > /etc/ssmtp/ssmtp.conf
-```
+    RUN apt-install ssmtp && \
+        echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini && \
+        echo "mailhub=mail:25\nUseTLS=NO\nFromLineOverride=YES" > /etc/ssmtp/ssmtp.conf
 
 Now test PHP's `mail()` function:
 
