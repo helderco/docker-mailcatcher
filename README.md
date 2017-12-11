@@ -17,6 +17,17 @@ Link to another container to send emails:
 
 In this example emails should be sent to host `mail` and port 25.
 
+### Docker-compose syntax
+    php:
+      build:
+        context: .
+        dockerfile: ./php/Dockerfile
+        link:
+          - mail
+    mail:
+      image: helder/mailcatcher
+      ports:
+        - 1080:80
 
 ## Example with a PHP container and ssmtp
 
@@ -25,7 +36,7 @@ ssmtp is a very lightweight send-only sendmail emulator. Let's see an example of
     # Dockerfile
     FROM helder/php
 
-    RUN apt-install ssmtp && \
+    RUN apt-get install ssmtp -y && \
         echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini && \
         echo "mailhub=mail:25\nUseTLS=NO\nFromLineOverride=YES" > /etc/ssmtp/ssmtp.conf
 
