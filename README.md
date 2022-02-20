@@ -1,6 +1,8 @@
-# docker-mailcatcher
+# docker-mailcatcher (DEPRECATED)
 
 [Mailcatcher](http://mailcatcher.me) docker image to catch emails during development.
+
+⚠️ **Deprecation notice:** Try [mailhog/mailhog](https://hub.docker.com/r/mailhog/mailhog).
 
 
 ## Basic usage
